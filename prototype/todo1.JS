@@ -6,8 +6,9 @@ function add(){
         if(tache.checked) faites++
     compteur.textContent = "tu as finis "  +faites +" sur " + taches.length;
 }
-taches.forEach(function(tache) {
+for (let tache of taches) {
   tache.addEventListener("change", add);
 });
 
 add()
+
