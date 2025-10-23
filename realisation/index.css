@@ -1,87 +1,93 @@
-/* style simple pour To-Do List */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("todo.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
-
 .content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 25px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   text-align: center;
 }
-
 h1 {
-  color: #333;
+  color: #2c3e50;
+  margin-bottom: 15px;
 }
-
 .ajoute {
   display: flex;
   margin-bottom: 15px;
 }
-
 .ajoute input {
   flex: 1;
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
+  border: 1px solid #bbb;
+  border-radius: 8px 0 0 8px;
   outline: none;
+  font-size: 14px;
 }
-
 .ajoute button {
-  background-color: #007bff;
+  background-color: #1abc9c;
   color: white;
   border: none;
-  padding: 8px 10px;
-  border-radius: 0 5px 5px 0;
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
-
 .ajoute button:hover {
-  background-color: #0056b3;
+  background-color: #16a085;
 }
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 li {
-  background: #f0f0f0;
-  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
-
+li:hover {
+  transform: scale(1.02);
+}
 li input[type="checkbox"] {
   margin-right: 10px;
+  accent-color: #1abc9c;
 }
-
 li button {
-  background-color: red;
+  background-color: #e74c3c;
   color: white;
   border: none;
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.3s;
 }
-
 li button:hover {
-  background-color: darkred;
+  background-color: #c0392b;
 }
-
 #compteur {
   margin-top: 10px;
-  color: #555;
+  color: #2c3e50;
+  font-weight: bold;
   font-size: 14px;
 }
+
