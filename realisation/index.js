@@ -2,25 +2,44 @@ let input = document.getElementById("ajoute");
 let btn = document.getElementById("add");
 let list = document.querySelector(".liste");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
 tasks.forEach(task => showTask(task));
+
 btn.addEventListener("click", () => {
   let text = input.value.trim();
   if (text === "") return;
-  showTask(text);
-  tasks.push(text);
+  let task = { text: text, done: false };
+  showTask(task);
+  tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   input.value = "";
 });
-function showTask(text) {
+
+function showTask(task) {
   let li = document.createElement("li");
-  li.textContent = text;
+
+  let check = document.createElement("input");
+  check.type = "checkbox";
+  check.checked = task.done;
+  check.onchange = () => {
+    task.done = check.checked;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    li.style.textDecoration = task.done ? "line-through" : "none";
+  };
+
   let removeA = document.createElement("button");
   removeA.textContent = "remove";
-  removeA.onclick = function () {
+  removeA.onclick = () => {
     li.remove();
-    tasks = tasks.filter(t => t !== text);
+    tasks = tasks.filter(t => t.text !== task.text);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   };
+
+  li.appendChild(check);
+  li.append(task.text);
   li.appendChild(removeA);
+  li.style.textDecoration = task.done ? "line-through" : "none";
   list.appendChild(li);
 }
+
+
