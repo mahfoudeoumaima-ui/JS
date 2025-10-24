@@ -24,7 +24,6 @@ function showTask(task) {
   check.onchange = () => {
     task.done = check.checked;
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    li.style.textDecoration = task.done ? "line-through" : "none";
   };
 
   let removeA = document.createElement("button");
@@ -38,8 +37,8 @@ function showTask(task) {
   li.appendChild(check);
   li.append(task.text);
   li.appendChild(removeA);
-  li.style.textDecoration = task.done ? "line-through" : "none";
   list.appendChild(li);
 }
+
 
 
